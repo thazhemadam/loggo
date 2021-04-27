@@ -16,13 +16,3 @@ void Subject::notify()
 	for (unsigned int i = 0; i < observers.size(); i++)
 		observers.at(i)->update(this);
 }
-
-int ConcreteSubject::getState()
-{
-	return subject_state;
-}
-
-void ConcreteSubject::setState(const int s)
-{
-	subject_state = s;
-}	

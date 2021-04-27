@@ -29,18 +29,4 @@ class Subject
 	virtual void setState(const int s) = 0;
 };
 
-/*
- * Concrete Subject
- * stores state that should stay consistent with the subject's
- */
-class ConcreteSubject : public Subject
-{
-	private:
-	int subject_state;
-
-	public:
-	int getState();
-	void setState(const int s);
-};
-
 #endif
