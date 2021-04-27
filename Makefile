@@ -20,10 +20,10 @@ $(ODIR)/%.o: $(SRC)/%.cpp $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 # final executable image
-logga : $(OBJ)
+loggo : $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS)
 
 .PHONY: clean
 
 clean:
-	rm -rf $(ODIR) logga
+	rm -rf $(ODIR) loggo
