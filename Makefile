@@ -7,11 +7,11 @@ ODIR=bin
 CFLAGS=-I $(IDIR)
 
 # enter names of header files defined in `include/` here
-_DEPS = 
+_DEPS = logga.h observer.h subject.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
 # enter `path/to/file.o` for each file defined in `src/` here
-_OBJ = 
+_OBJ = observer.o subject.o concretes/observer.o client.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 # generate object files for all source files, following the same directory structure
