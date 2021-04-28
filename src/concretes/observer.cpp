@@ -1,14 +1,15 @@
 #include "concretes/observer.h"
 #include "concretes/subject.h"
+#include "state.h"
 
-ConcreteObserver::ConcreteObserver(const std::string state)
+ConcreteObserver::ConcreteObserver(const state state)
 : observer_state(state)
 {}
 
 ConcreteObserver::~ConcreteObserver()
 {}
 
-std::string ConcreteObserver::getState()
+state ConcreteObserver::getState()
 {
 	return observer_state;
 }

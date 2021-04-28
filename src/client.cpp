@@ -3,7 +3,7 @@
 int main()
 {
 	ConcreteObserver observer1("STATE - 1");
-	ConcreteObserver observer2("STATE - 1");
+	ConcreteObserver observer2("STATE - 2");
 
 	std::cout << "Observer 1 state: " << observer1.getState() << std::endl;
 	std::cout << "Observer 2 state: " << observer2.getState() << std::endl;

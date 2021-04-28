@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include "state.h"
 
 class Observer;
 
@@ -25,8 +26,8 @@ class Subject
 
 	void notify();
 	
-	virtual std::string getState() = 0;
-	virtual void setState(const std::string s) = 0;
+	virtual state getState() = 0;
+	virtual void setState(const state s) = 0;
 };
 
 #endif

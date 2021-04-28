@@ -2,6 +2,7 @@
 #define CONCRETE_OBSERVER_H
 
 #include "../observer.h"
+#include "../state.h"
 
 /*
  * Concrete Observer
@@ -12,14 +13,14 @@ class ConcreteObserver : public Observer
 {
 
 	private:
-	std::string observer_state;
+	state observer_state;
 
 	public:
-	ConcreteObserver(const std::string state);
-	
+	ConcreteObserver(const state state);
+
 	~ConcreteObserver();
-	
-	std::string getState();
+
+	state getState();
 	void update(Subject *subject);
 };
 

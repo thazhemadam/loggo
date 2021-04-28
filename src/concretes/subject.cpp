@@ -1,12 +1,13 @@
 #include "concretes/observer.h"
 #include "concretes/subject.h"
+#include "state.h"
 
-std::string ConcreteSubject::getState()
+state ConcreteSubject::getState()
 {
 	return subject_state;
 }
 
-void ConcreteSubject::setState(const std::string s)
+void ConcreteSubject::setState(const state s)
 {
 	subject_state = s;
 }

@@ -2,6 +2,7 @@
 #define CONCRETE_SUBJECT_H
 
 #include "../subject.h"
+#include "../state.h"
 
 /*
  * Concrete Subject
@@ -10,11 +11,11 @@
 class ConcreteSubject : public Subject
 {
 	private:
-	std::string subject_state;
+	state subject_state;
 
 	public:
-	std::string getState();
-	void setState(const std::string s);
+	state getState();
+	void setState(const state s);
 };
 
 #endif

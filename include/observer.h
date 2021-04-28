@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include "state.h"
 
 class Subject;
 
@@ -16,7 +17,7 @@ class Observer
 	public:
 	virtual ~Observer() {}
 
-	virtual std::string getState() = 0;
+	virtual state getState() = 0;
 	virtual void update(Subject *subject) = 0;
 };
 
