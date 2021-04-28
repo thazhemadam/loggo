@@ -5,8 +5,8 @@ int main()
 	ConcreteObserver observer1("STATE - 1");
 	ConcreteObserver observer2("STATE - 2");
 
-	std::cout << "Observer 1 state: " << observer1.getState() << std::endl;
-	std::cout << "Observer 2 state: " << observer2.getState() << std::endl;
+	observer1.disp();
+	observer2.disp();
 
 	Subject *subject = new ConcreteSubject();
 	subject->attach(&observer1);
@@ -15,8 +15,9 @@ int main()
 	subject->setState("STATE - LIQUID");
 	subject->notify();
 
-	std::cout << "Observer 1 state: " << observer1.getState() << std::endl;
-	std::cout << "Observer 2 state: " << observer2.getState() << std::endl;
+	observer1.disp();
+	observer2.disp();
+	
 
 	delete subject;
 	return 0;
