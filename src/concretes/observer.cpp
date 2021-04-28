@@ -3,7 +3,7 @@
 #include "state.h"
 
 ConcreteObserver::ConcreteObserver(const state state)
-: observer_state(state)
+: observer_state_(state)
 {}
 
 ConcreteObserver::~ConcreteObserver()
@@ -11,16 +11,16 @@ ConcreteObserver::~ConcreteObserver()
 
 state ConcreteObserver::getState()
 {
-	return observer_state;
+	return observer_state_;
 }
 
 void ConcreteObserver::update(Subject *subject)
 {
-	observer_state = subject->getState();
+	observer_state_ = subject->getState();
 	std::cout << "Observer state updated." << std::endl;
 }
 
 void ConcreteObserver::disp() const
 {
-	std::cout << "Observer state " << observer_state << "\n";
+	std::cout << "Observer state " << observer_state_ << "\n";
 }

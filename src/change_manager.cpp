@@ -1,18 +1,18 @@
 #include "change_manager.h"
 
-ChangeManager* ChangeManager::instance = nullptr;
+ChangeManager* ChangeManager::instance_ = nullptr;
 
 ChangeManager* ChangeManager::get()
 {
-	if (!instance)
-		instance = new ChangeManager();
+	if (!instance_)
+		instance_ = new ChangeManager();
 
-	return instance;
+	return instance_;
 }
 
 void ChangeManager::remove()
 {
-	if (instance)
-		delete instance;
+	if (instance_)
+		delete instance_;
 
 }

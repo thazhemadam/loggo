@@ -13,7 +13,7 @@ class ConcreteObserver : public Observer
 {
 
 	private:
-	state observer_state;
+	state observer_state_;
 
 	public:
 	ConcreteObserver(const state state);

@@ -11,7 +11,7 @@
 class ConcreteSubject : public Subject
 {
 	private:
-	state subject_state;
+	state subject_state_;
 
 	public:
 	state getState();

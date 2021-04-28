@@ -5,13 +5,13 @@
 
 /*
  * ChangeManager
- * has private static variable to hold one instance of the class
+ * has private static variable to hold one instance_ of the class
  * and method which gives us a way to instantiate the class
  */
 class ChangeManager
 {
 private:
-	static ChangeManager *instance;
+	static ChangeManager *instance_;
 
 protected:
 	ChangeManager() {}

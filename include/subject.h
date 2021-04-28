@@ -16,7 +16,7 @@ class Subject
 {
 
 	private:
-	std::vector<Observer*> observers;
+	std::vector<Observer*> observers_;
 
 	public:
 	virtual ~Subject() {}

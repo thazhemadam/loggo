@@ -4,10 +4,10 @@
 
 state ConcreteSubject::getState()
 {
-	return subject_state;
+	return subject_state_;
 }
 
 void ConcreteSubject::setState(const state s)
 {
-	subject_state = s;
+	subject_state_ = s;
 }
