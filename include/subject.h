@@ -20,12 +20,11 @@ class Subject
 
 	public:
 	virtual ~Subject() {}
-	
-	void attach(Observer *observer);
-	void detach(const int index);
 
-	void notify();
-	
+	virtual void attach(Observer *observer);
+	virtual void detach(const int index);
+	virtual void notify();
+
 	virtual state getState() = 0;
 	virtual void setState(const state s) = 0;
 };

@@ -19,6 +19,7 @@ class Observer
 
 	virtual state getState() = 0;
 	virtual void update(Subject *subject) = 0;
+	virtual void disp() const = 0;
 };
 
 #endif

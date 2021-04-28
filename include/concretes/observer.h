@@ -20,8 +20,9 @@ class ConcreteObserver : public Observer
 
 	~ConcreteObserver();
 
-	state getState();
-	void update(Subject *subject);
+	virtual state getState();
+	virtual void update(Subject *subject);
+	virtual void disp() const;
 };
 
 #endif
