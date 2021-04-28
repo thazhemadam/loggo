@@ -25,8 +25,8 @@ class Subject
 
 	void notify();
 	
-	virtual int getState() = 0;
-	virtual void setState(const int s) = 0;
+	virtual std::string getState() = 0;
+	virtual void setState(const std::string s) = 0;
 };
 
 #endif

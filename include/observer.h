@@ -16,7 +16,7 @@ class Observer
 	public:
 	virtual ~Observer() {}
 
-	virtual int getState() = 0;
+	virtual std::string getState() = 0;
 	virtual void update(Subject *subject) = 0;
 };
 

@@ -12,14 +12,14 @@ class ConcreteObserver : public Observer
 {
 
 	private:
-	int observer_state;
+	std::string observer_state;
 
 	public:
-	ConcreteObserver(const int state);
+	ConcreteObserver(const std::string state);
 	
 	~ConcreteObserver();
 	
-	int getState();
+	std::string getState();
 	void update(Subject *subject);
 };
 

@@ -10,11 +10,11 @@
 class ConcreteSubject : public Subject
 {
 	private:
-	int subject_state;
+	std::string subject_state;
 
 	public:
-	int getState();
-	void setState(const int s);
+	std::string getState();
+	void setState(const std::string s);
 };
 
 #endif
