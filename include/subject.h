@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include "state.h"
+#include "change_manager.h"
 
 class Observer;
 
@@ -22,7 +23,7 @@ class Subject
 	virtual ~Subject() {}
 
 	virtual void attach(Observer *observer);
-	virtual void detach(const int index);
+	virtual void detach(Observer *observer);
 	virtual void notify();
 
 	virtual state getState() = 0;
