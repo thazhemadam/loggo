@@ -15,7 +15,7 @@ class ConcreteSubject : public Subject
 
 	public:
 	state get_state() const;
-	void set_state(const state s);
+	void set_state(const state s, bool auto_notify = false);
 };
 
 #endif
