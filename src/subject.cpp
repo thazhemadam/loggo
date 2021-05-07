@@ -3,16 +3,15 @@
 
 void Subject::attach(Observer *observer)
 {
-	observers_.push_back(observer);
+	ChangeManager::get()->register_(this, observer);
 }
-	
-void Subject::detach(const int index)
+
+void Subject::detach(Observer *observer)
 {
-	observers_.erase(observers_.begin() + index);
+	ChangeManager::get()->unregister_(this, observer);
 }
 	
 void Subject::notify()
 {
-	for (unsigned int i = 0; i < observers_.size(); i++)
-		observers_.at(i)->update(this);
+	ChangeManager::get()->notify_(this);
 }
