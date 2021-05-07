@@ -10,7 +10,7 @@ int main()
 	observer1.disp();
 	observer2.disp();
 
-	Subject *subject = new ConcreteSubject();
+	ConcreteSubject *subject = new ConcreteSubject();
 	//subject->attach(&observer1);
 	//subject->attach(&observer2);
 
@@ -18,7 +18,9 @@ int main()
 	//subject->notify();
 
 	CM.Subscribe(subject,observer1);
-	//CM.Subscribe(subject,observer2);
+	CM.Subscribe(subject,observer2);
+
+	CM.Notify(subject);
 
 
 

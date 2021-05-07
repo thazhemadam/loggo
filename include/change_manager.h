@@ -18,9 +18,10 @@ private:
 	vector<ConcreteSubject*> subs;
 
 protected:
-	ChangeManager() {}
 
 public:
+	ChangeManager() {}
+
 	ChangeManager(ChangeManager const&) = delete;
 	ChangeManager& operator=(ChangeManager const&) = delete;
 	void Subscribe( ConcreteSubject* sub, ConcreteObserver obs);
