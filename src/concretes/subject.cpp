@@ -2,7 +2,7 @@
 #include "concretes/subject.h"
 #include "state.h"
 
-state ConcreteSubject::get_state()
+state ConcreteSubject::get_state() const
 {
 	return subject_state_;
 }

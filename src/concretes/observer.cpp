@@ -9,7 +9,7 @@ ConcreteObserver::ConcreteObserver(const state state)
 ConcreteObserver::~ConcreteObserver()
 {}
 
-state ConcreteObserver::get_state()
+state ConcreteObserver::get_state() const
 {
 	return observer_state_;
 }
