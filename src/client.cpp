@@ -19,6 +19,14 @@ int main()
 	observer2.disp();
 	
 
+	subject->detach(&observer1);
+
+	subject->setState("STATE - Karnataka");
+	subject->notify();
+
+	observer1.disp();
+	observer2.disp();
+
 	delete subject;
 	return 0;
 }
