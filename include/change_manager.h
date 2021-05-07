@@ -1,7 +1,10 @@
 #ifndef CHANGE_MANAGER_H
 #define CHANGE_MANAGER_H
-
+#include "concretes/observer.h"
+#include "concretes/subject.h"
 #include <iostream>
+#include<vector>
+using namespace std;
 
 /*
  * ChangeManager
@@ -12,6 +15,7 @@ class ChangeManager
 {
 private:
 	static ChangeManager *instance_;
+	vector<ConcreteSubject*> subs;
 
 protected:
 	ChangeManager() {}
@@ -19,7 +23,9 @@ protected:
 public:
 	ChangeManager(ChangeManager const&) = delete;
 	ChangeManager& operator=(ChangeManager const&) = delete;
-
+	void Subscribe( ConcreteSubject* sub, ConcreteObserver obs);
+	void Unsubscribe( ConcreteSubject* sub, ConcreteObserver obs);
+	void Notify(ConcreteSubject* sub);
 	static ChangeManager* get();
 	static void remove();
 };

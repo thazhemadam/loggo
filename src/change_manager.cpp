@@ -16,3 +16,20 @@ void ChangeManager::remove()
 		delete instance_;
 
 }
+
+void  ChangeManager::Subscribe(ConcreteSubject* sub, ConcreteObserver obs)
+{
+	subs.push_back(sub);
+	sub->attach(&obs);
+}
+
+
+void ChangeManager::Unsubscribe(ConcreteSubject* sub, ConcreteObserver obs)
+{
+	//subscriptions[sub].remove(obs);
+}
+
+void ChangeManager::Notify(ConcreteSubject* sub)
+{
+	sub->notify();
+}

@@ -2,18 +2,25 @@
 
 int main()
 {
+	
 	ConcreteObserver observer1("STATE - 1");
 	ConcreteObserver observer2("STATE - 2");
+	ChangeManager CM;
 
 	observer1.disp();
 	observer2.disp();
 
 	Subject *subject = new ConcreteSubject();
-	subject->attach(&observer1);
-	subject->attach(&observer2);
+	//subject->attach(&observer1);
+	//subject->attach(&observer2);
 
 	subject->setState("STATE - LIQUID");
-	subject->notify();
+	//subject->notify();
+
+	CM.Subscribe(subject,observer1);
+	//CM.Subscribe(subject,observer2);
+
+
 
 	observer1.disp();
 	observer2.disp();
