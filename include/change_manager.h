@@ -29,13 +29,15 @@ private:
 	static ChangeManager *instance_;
 	std::unordered_multimap<Subject *, Observer *> subject_observer;
 
-public:
+protected:
 	ChangeManager() {}
+
+public:
+	static void remove();
 	ChangeManager(ChangeManager const&) = delete;
 	ChangeManager& operator=(ChangeManager const&) = delete;
 
 	static ChangeManager* get();
-	static void remove();
 
 	// use register_ and unregister_ since "register" is a keyword
 	void register_(Subject* s, Observer* o);
