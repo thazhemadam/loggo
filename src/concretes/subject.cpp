@@ -2,12 +2,12 @@
 #include "concretes/subject.h"
 #include "state.h"
 
-state ConcreteSubject::getState()
+state ConcreteSubject::get_state()
 {
 	return subject_state_;
 }
 
-void ConcreteSubject::setState(const state s)
+void ConcreteSubject::set_state(const state s)
 {
 	subject_state_ = s;
 }

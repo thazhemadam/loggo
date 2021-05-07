@@ -14,8 +14,8 @@ class ConcreteSubject : public Subject
 	state subject_state_;
 
 	public:
-	state getState();
-	void setState(const state s);
+	state get_state();
+	void set_state(const state s);
 };
 
 #endif

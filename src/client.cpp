@@ -12,7 +12,7 @@ int main()
 	subject->attach(&observer1);
 	subject->attach(&observer2);
 
-	subject->setState("STATE - LIQUID");
+	subject->set_state("STATE - LIQUID");
 	subject->notify();
 
 	observer1.disp();
@@ -21,7 +21,7 @@ int main()
 
 	subject->detach(&observer1);
 
-	subject->setState("STATE - Karnataka");
+	subject->set_state("STATE - Karnataka");
 	subject->notify();
 
 	observer1.disp();
