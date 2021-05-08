@@ -31,5 +31,5 @@ void ChangeManager::Unsubscribe(ConcreteSubject* sub, ConcreteObserver obs)
 
 void ChangeManager::Notify(ConcreteSubject* sub)
 {
-	sub->notify();
+	sub->update();
 }
