@@ -26,8 +26,8 @@ class Subject
 	virtual void detach(Observer *observer);
 	virtual void notify();
 
-	virtual state getState() = 0;
-	virtual void setState(const state s) = 0;
+	virtual state get_state() const = 0;
+	virtual void set_state(const state s, bool auto_notify = false) = 0;
 };
 
 #endif

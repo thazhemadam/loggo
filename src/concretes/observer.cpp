@@ -9,14 +9,14 @@ ConcreteObserver::ConcreteObserver(const state state)
 ConcreteObserver::~ConcreteObserver()
 {}
 
-state ConcreteObserver::getState()
+state ConcreteObserver::get_state() const
 {
 	return observer_state_;
 }
 
 void ConcreteObserver::update(Subject *subject)
 {
-	observer_state_ = subject->getState();
+	observer_state_ = subject->get_state();
 	std::cout << "Observer state updated." << std::endl;
 }
 
