@@ -17,7 +17,7 @@ state ConcreteObserver::get_state() const
 void ConcreteObserver::update(Subject *subject)
 {
 	observer_state_ = subject->get_state();
-	std::cout << "Observer state updated." << std::endl;
+	std::cout << "Observer state updated." << observer_state_ << std::endl;
 }
 
 void ConcreteObserver::disp() const
