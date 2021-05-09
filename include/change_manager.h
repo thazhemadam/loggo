@@ -29,10 +29,10 @@ private:
 	static ChangeManager *instance_;
 	std::unordered_multimap<Subject *, Observer *> subject_observer;
 
-protected:
-	ChangeManager() {}
+
 
 public:
+	int timer;
 	static void remove();
 	ChangeManager(ChangeManager const&) = delete;
 	ChangeManager& operator=(ChangeManager const&) = delete;
@@ -43,6 +43,12 @@ public:
 	void register_(Subject* s, Observer* o);
 	void unregister_(Subject* s, Observer* o);
 	void notify_(Subject* s);
+	int increament_time();
+	
+
+protected:
+	ChangeManager() {timer=0;}
+
 };
 
 #endif

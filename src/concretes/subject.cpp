@@ -10,7 +10,7 @@ state ConcreteSubject::get_state() const
 void ConcreteSubject::set_state(const state s, bool auto_notify)
 {
 	subject_state_ = s;
-
+	updation_time=ChangeManager::get()->increament_time();
 	if(auto_notify)
 		notify();
 }

@@ -20,6 +20,8 @@ class Subject
 	std::vector<Observer*> observers_;
 
 	public:
+	int updation_time;
+
 	virtual ~Subject() {}
 
 	virtual void attach(Observer *observer);
