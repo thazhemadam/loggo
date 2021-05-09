@@ -14,8 +14,11 @@ class ConcreteSubject : public Subject
 	state subject_state_;
 
 	public:
-	state get_state() const;
-	void set_state(const state s, bool auto_notify = false);
+	ConcreteSubject() = default;
+	virtual ~ConcreteSubject();
+
+	virtual state get_state() const;
+	virtual void set_state(const state s, bool auto_notify = false);
 };
 
 #endif

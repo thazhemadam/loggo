@@ -16,9 +16,10 @@ class ConcreteObserver : public Observer
 	state observer_state_;
 
 	public:
+	ConcreteObserver() = default;
 	ConcreteObserver(const state state);
 
-	~ConcreteObserver();
+	virtual ~ConcreteObserver();
 
 	virtual state get_state() const;
 	virtual void update(Subject *subject);
