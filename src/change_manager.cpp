@@ -39,12 +39,12 @@ void ChangeManager::unregister_(Subject* s, Observer* o)
 }
 
 
-void ChangeManager::notify_(Subject* s)
+void ChangeManager::notify_(Subject* subject)
 {
-	std::pair<iterator, iterator> iterpair = subject_observer.equal_range(s);
-	iterator it = iterpair.first;
+	std::pair<iterator, iterator> iterpair = subject_observer.equal_range(subject);
 
-	for (; it != iterpair.second; ++it) {
-		it->second->update(s);
+	iterator observer = iterpair.first;
+	for (; observer != iterpair.second; ++observer) {
+		observer->second->update(subject);	// "observer->second" is an observer of the Subject s
 	}
 }
