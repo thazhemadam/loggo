@@ -21,11 +21,19 @@ public:
 
     Coordinates(double x, double y) : point_(Point(x, y)) {
         void *temp = this;
-        std::cout << "\nIN Ctor: \t" << this << "\n";
 		ChangeManager::get()->initialize_(this, temp);
     }
 
     ~Coordinates() {}
+
+    Coordinates& operator=(const Coordinates &rhs)
+    {
+        if(this != &rhs) {
+            point_ = rhs.point_;
+            set_state(point_, true);
+        }
+        return *this;
+    }
 
     friend std::ostream& operator<<(std::ostream& os, const Coordinates& point)
     {
@@ -35,7 +43,6 @@ public:
 
     void set_state(state s, bool autonotify = false)
     {
-        std::cout << "\nIN Coords SetState: \t" << this << "\n";
         point_ = s;
         ConcreteSubject::set_state(s, autonotify);
     }

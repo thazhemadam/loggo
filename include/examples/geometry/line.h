@@ -13,7 +13,6 @@ private:
 	double distance_;
     double slope_;
 
-
 public:
     Coordinates p_1_;
     Coordinates p_2_;

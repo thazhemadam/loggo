@@ -60,7 +60,7 @@ void ChangeManager::disp()
 	}
 
 	std::cout << "================================\n";
-	
+
 	for(auto itr = lookup.begin(); itr != lookup.end(); ++itr) {
 		std::cout << "\t" << itr->first << "\t" << itr->second << "\n";
 	}
