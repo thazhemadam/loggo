@@ -5,9 +5,10 @@
 using state = std::string;
 #endif
 
-#ifdef GEOMETRY
+// #ifdef GEOMETRY
+#else
 #include "examples/geometry/point.h"
-using state = Point;
-#endif
+using state = Point*;
+// #endif
 
 #endif

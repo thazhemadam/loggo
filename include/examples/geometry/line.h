@@ -1,24 +1,22 @@
 #ifndef LINE_H
 #define LINE_H
 
-#include "../../concretes/dual.h"
+#include "../../concretes/observer.h"
 #include "../../state.h"
 #include "coordinates.h"
 #include <math.h>
 
-class Line : public Dual
+class Line : public ConcreteObserver
 {
 
 private:
     state observer_state_[2];
-    state subject_state_[2];
 
 	double distance_;
     double slope_;
 
 
 public:
-    friend class Angle;
     Coordinates p_1_;
     Coordinates p_2_;
 
@@ -29,10 +27,13 @@ public:
         distance_ = manhattan_distance(x, y); 
         slope_ = slope(x, y);
 
-        // if(auto_attach) {
-        //     p_1_.attach(this);
-        //     p_2_.attach(this);
-        // }
+        if(auto_attach) {
+            p_1_.attach(this);
+            p_2_.attach(this);
+
+            observer_state_[0] = &(p_1_.point_);
+            observer_state_[1] = &(p_2_.point_);
+        }
     }
 
 	~Line() {}
@@ -42,12 +43,10 @@ public:
         return (abs(p_2.point_.x_ - p_1.point_.x_) + abs(p_2.point_.y_ - p_1.point_.y_));
     }
 
-
     double slope(Coordinates p_1, Coordinates p_2)
     {
         return ((p_2.point_.y_ - p_1.point_.y_)/((p_2.point_.x_ - p_1.point_.x_)) );
     }
-
 
     void update_distance()
     {
@@ -66,23 +65,18 @@ public:
 
     void update(Subject *subject)
     {
-        std::cout << "\nIn line's update\n";
-
         if(subject == &p_1_) {
             p_1_ = subject->get_state();
             observer_state_[0] = subject->get_state();
-            subject_state_[0] = subject->get_state();
-
         }
+
         else {
             p_2_ = subject->get_state();
             observer_state_[1] = subject->get_state();
-            subject_state_[1] = subject->get_state();
         }
 
         update_distance();
         update_slope();
-        notify();       // Notify all Observers of this line that this line has changed.
     }
 
     void disp() const

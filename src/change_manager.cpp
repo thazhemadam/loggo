@@ -28,8 +28,10 @@ void ChangeManager::initialize_(Subject* s, void *test)
 
 void ChangeManager::register_(Subject* s, Observer* o)
 {
+	#if LIBRARY
 	if(s == lookup_convert(o))	// ensure that the Subject and Observer aren't same
 		return;
+	#endif
 
 	subject_observer.insert(std::pair<Subject *, Observer*>(s, o));
 }

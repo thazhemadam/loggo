@@ -18,8 +18,10 @@ public:
 	Dual(const state state)
 	: observer_state_(state), subject_state_(state)
 	{
+		#ifdef LIBRARY
 		void *temp = this;
 		ChangeManager::get()->initialize_(this, temp);
+		#endif
 	}
 
 	virtual ~Dual() {};
