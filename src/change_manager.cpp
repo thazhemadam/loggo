@@ -39,21 +39,36 @@ void ChangeManager::unregister_(Subject* s, Observer* o)
 	}
 }
 
+void ChangeManager::disp()
+{
+	std::cout << subject_observer.size() << "\n";
+
+	for(auto itr = subject_observer.begin(); itr != subject_observer.end(); ++itr) {
+		std::cout << "\t" << itr->first << "\t" << itr->second << "\n";
+	}
+}
 
 void ChangeManager::notify_(Subject* subject)
 {
-	std::cout << "----------------------------!\n";
+	disp();
+	std::cout << "\nNotifying all dependencies of library : " << &(*subject) << "\n";
+	// std::cout << "----------------------------!\n";
 	std::pair<iterator, iterator> iterpair = subject_observer.equal_range(subject);
 
 	iterator observer = iterpair.first;
 
-	std::cout << subject_observer.size() << "\n";
-	for(auto itr = subject_observer.begin(); itr != subject_observer.end(); ++itr) {
-		std::cout << "\t" << itr->first << "\t" << itr->second << "\n";
-	}
+	// std::cout << subject_observer.size() << "\n";
+	// for(auto itr = subject_observer.begin(); itr != subject_observer.end(); ++itr) {
+	// 	std::cout << "\t" << itr->first << "\t" << itr->second << "\n";
+	// }
 	std::cout << "----------------------------!\n";
 	for (; observer != iterpair.second; ++observer) {
-		std::cout << "updating!";
+		std::cout << "updating!\n";
 		observer->second->update(subject);	// "observer->second" is an observer of the Subject s
+
+		Subject *b = (Subject *) reinterpret_cast<void*>(observer->second);
+		std::cout << b << "\n";
+		notify_(b);
 	}
+	std::cout << "----------------------------!\n";
 }

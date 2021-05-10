@@ -43,6 +43,7 @@ public:
 	void register_(Subject* s, Observer* o);
 	void unregister_(Subject* s, Observer* o);
 	void notify_(Subject* s);
+	void disp();
 };
 
 #endif
