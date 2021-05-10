@@ -23,7 +23,7 @@ class ConcreteObserver : public Observer
 
 	state get_state() const;
 	virtual void update(Subject *subject);
-	virtual void disp() const;
+	void disp() const;
 };
 
 #endif

@@ -3,20 +3,27 @@
 
 #include "../concretes/observer.h"
 #include "../state.h"
+#include "../observer.h"
 
-class Angle
+class Angle : public Observer
 {
 public:
     // to make into a line
-    double slope_1_;
-    double slope_2_;
+    Line l_1_;
+    Line l_2_;
 
     Angle() = default;
-    Angle(double s1, double s2) : slope_1_(s1), slope_2_(s2) {}
+    Angle(Line l1, Line l2, bool auto_attach = false) : l_1_(l1), l_2_(l2)
+    {
+        if(auto_attach) {
+            l_1_.attach(this);
+            l_2_.attach(this);
+        }
+    }
 
     // virtual - to be or not to be.
-	virtual void update(Subject *subject);
-	virtual void disp() const;
+	void update(Subject *subject);
+
 };
 
 #endif

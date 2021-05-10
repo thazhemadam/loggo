@@ -18,7 +18,6 @@ class Observer
 	virtual ~Observer() {}
 
 	virtual void update(Subject *subject) = 0;
-	virtual void disp() const = 0;
 };
 
 #endif

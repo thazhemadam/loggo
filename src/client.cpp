@@ -32,18 +32,12 @@ int main()
 
 	#elif GEOMETRY
 	Coordinates z1 = Coordinates(5, 2);
-	cout << "Z1: "<< "\t" << &z1 << "\n";
-
 	Coordinates z2 = Coordinates(4, 1);
-	cout << "Z2: "<< "\t" << &z2 << "\n";
-
 	Line l1 = Line(z1, z2, true);
-	cout << "l1: "<< "\t" << &l1 << "\n";
-
-	Line l2 = Line(z1, z2);
-	cout << "l2: "<< "\t" << &l2 << "\n";
-
+	Line l2 = Line(z1, z2, true);
 	l1.p_2_.set_state(Point(3, 2), true);
+
+	
 	#endif
 	return 0;
 }
