@@ -40,6 +40,7 @@ public:
 
 	void set_state(const state s, bool auto_notify = false)
     {
+        std::cout << "\nIn coordinates' set_state\n";
         subject_state_ = s;
 
         if(auto_notify)

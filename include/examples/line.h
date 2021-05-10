@@ -11,16 +11,19 @@ class Line : public Dual
 
 private:
     state observer_state_[2];
+    state subject_state_[2];
+
 	double distance_;
     double slope_;
 
 
 public:
+    friend class Angle;
     Coordinates p_1_;
     Coordinates p_2_;
 
 	Line() = default;
-	Line(Coordinates x, Coordinates y, bool auto_attach = false)
+	Line(Coordinates x, Coordinates y, bool auto_attach = true)
     : p_1_(x), p_2_(y)
     {
         distance_ = manhattan_distance(x, y); 
@@ -63,13 +66,18 @@ public:
 
     void update(Subject *subject)
     {
+        std::cout << "\nIn line's update\n";
+
         if(subject == &p_1_) {
             p_1_ = subject->get_state();
             observer_state_[0] = subject->get_state();
+            subject_state_[0] = subject->get_state();
+
         }
         else {
-            observer_state_[1] = subject->get_state();
             p_2_ = subject->get_state();
+            observer_state_[1] = subject->get_state();
+            subject_state_[1] = subject->get_state();
         }
 
         update_distance();

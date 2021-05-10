@@ -21,6 +21,7 @@ void ChangeManager::remove()
 
 void ChangeManager::register_(Subject* s, Observer* o)
 {
+	// std::cout << "\nRegistering " << s ;
 	subject_observer.insert(std::pair<Subject *, Observer*>(s, o));
 }
 
@@ -41,12 +42,18 @@ void ChangeManager::unregister_(Subject* s, Observer* o)
 
 void ChangeManager::notify_(Subject* subject)
 {
-
+	std::cout << "----------------------------!\n";
 	std::pair<iterator, iterator> iterpair = subject_observer.equal_range(subject);
 
 	iterator observer = iterpair.first;
 
+	std::cout << subject_observer.size() << "\n";
+	for(auto itr = subject_observer.begin(); itr != subject_observer.end(); ++itr) {
+		std::cout << "\t" << itr->first << "\t" << itr->second << "\n";
+	}
+	std::cout << "----------------------------!\n";
 	for (; observer != iterpair.second; ++observer) {
+		std::cout << "updating!";
 		observer->second->update(subject);	// "observer->second" is an observer of the Subject s
 	}
 }

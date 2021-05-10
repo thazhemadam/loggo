@@ -32,12 +32,44 @@ int main()
 
 	#elif GEOMETRY
 	Coordinates z1 = Coordinates(5, 2);
-	Coordinates z2 = Coordinates(4, 1);
-	Line l1 = Line(z1, z2, true);
-	Line l2 = Line(z1, z2, true);
-	l1.p_2_.set_state(Point(3, 2), true);
-
+	Coordinates z2 = Coordinates(2, 1);
+	Coordinates z3 = Coordinates(2, 5);
+	Coordinates z4 = Coordinates(3, 1);
 	
+
+	Line l1 = Line(z1, z2, true);
+	Line l2 = Line(z1, z3, true);
+
+	cout << "\n\nlllllllllllllllllllllllll\n";
+	cout << "L1\t\t" << &l1 << "\n";
+	cout << "L1.p_1_ \t " << &l1.p_1_ << "\n";
+	cout << "L1.p_2_ \t" << &l1.p_2_ << "\n";
+	cout << "L2 \t\t" << &l2 << "\n";
+	cout << "L2.p_1_ \t " << &l2.p_1_ << "\n";
+	cout << "L2.p_2_ \t" << &l2.p_2_ << "\n";
+	cout << "lllllllllllllllllllllllll\n";
+
+	cout <<"\n---------------- \n BEFORE \n";
+	cout << l1;
+	// Angle angle(l1, l2);
+	// cout << &angle;
+
+	l1.p_1_.set_state(Point(5,4), true);
+	cout <<"\n---------------- \n AFTER \n";
+	cout << l1;
+	// line has 2 coordinates	-> an object itself changes state depending upon the state of its own members
+	// -> subjects & the line is an observer
+	// Angle has 2 lines
+	// -> lines are subjects and angle is the obserer
+
+
+
 	#endif
 	return 0;
 }
+/*
+	1, 2, 3
+	2 -> 1
+	3 -> 2
+	1 changes.
+*/
