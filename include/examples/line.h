@@ -10,7 +10,7 @@ class Line : public Dual
 {
 
 private:
-    state observer_state_;
+    state observer_state_[2];
 	double distance_;
     double slope_;
 
@@ -56,20 +56,25 @@ public:
         slope_ = slope(p_1_, p_2_);
     }
 
-	state get_state() const
+	state get_state(int index) const
     {
-        return observer_state_;
+        return observer_state_[index];
     }
 
     void update(Subject *subject)
     {
-        if(subject == &p_1_)
+        if(subject == &p_1_) {
             p_1_ = subject->get_state();
-        else
+            observer_state_[0] = subject->get_state();
+        }
+        else {
+            observer_state_[1] = subject->get_state();
             p_2_ = subject->get_state();
-        
+        }
+
         update_distance();
         update_slope();
+        notify();       // Notify all Observers of this line that this line has changed.
     }
 
     void disp() const

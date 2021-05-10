@@ -17,7 +17,6 @@ class Observer
 	public:
 	virtual ~Observer() {}
 
-	virtual state get_state() const = 0;
 	virtual void update(Subject *subject) = 0;
 	virtual void disp() const = 0;
 };

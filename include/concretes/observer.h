@@ -21,7 +21,7 @@ class ConcreteObserver : public Observer
 
 	virtual ~ConcreteObserver();
 
-	virtual state get_state() const;
+	state get_state() const;
 	virtual void update(Subject *subject);
 	virtual void disp() const;
 };
