@@ -19,6 +19,13 @@ void ChangeManager::remove()
 }
 
 
+void ChangeManager::initialize_(Subject* s, void *test)
+{
+	lookup.insert(std::pair<void*, Subject *>(test, s));
+}
+
+
+
 void ChangeManager::register_(Subject* s, Observer* o)
 {
 	subject_observer.insert(std::pair<Subject *, Observer*>(s, o));
@@ -40,24 +47,39 @@ void ChangeManager::unregister_(Subject* s, Observer* o)
 
 void ChangeManager::disp()
 {
+	std::cout << "================================\n";
 	std::cout << subject_observer.size() << "\n";
 
 	for(auto itr = subject_observer.begin(); itr != subject_observer.end(); ++itr) {
 		std::cout << "\t" << itr->first << "\t" << itr->second << "\n";
 	}
+	std::cout << "================================\n";
+	std::cout << lookup.size() << "\n";
+
+	for(auto itr = lookup.begin(); itr != lookup.end(); ++itr) {
+		std::cout << "\t" << itr->first << "\t" << itr->second << "\n";
+	}
+
+	std::cout << "================================\n";
+
+}
+
+Subject *ChangeManager::lookup_convert(void* observer)
+{
+	auto iterpair = lookup.equal_range(observer);
+	return iterpair.first->second;
 }
 
 void ChangeManager::notify_(Subject* subject)
 {
-	std::cout << "\n called;";
 	std::pair<iterator, iterator> iterpair = subject_observer.equal_range(subject);
 
 	iterator observer = iterpair.first;
 
 	for (; observer != iterpair.second; ++observer) {
+		observer->second->update(subject);	// "observer->second" is an observer of the Subject sa reference
 
-		Subject *b = (Subject *) reinterpret_cast<void*>(observer->second);
-		std::cout << b << "\n";
-		notify_(b);
+		Subject *next_update = lookup_convert(observer->second);
+		notify_(next_update);
 	}
 }

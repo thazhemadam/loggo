@@ -12,13 +12,14 @@ int main()
 	Dual library_5("LIB - 5");
 	Dual library_6("LIB - 6");
 
-	// cout << "LIBRARY 1 : " << &library_1 << "\n";
-	// cout << "LIBRARY 2 : " << &library_2 << "\n";
-	// cout << "LIBRARY 3 : " << &library_3 << "\n";
-	// cout << "LIBRARY 4 : " << &library_4 << "\n";
-	// cout << "LIBRARY 5 : " << &library_5 << "\n";
-	// cout << "LIBRARY 6 : " << &library_6 << "\n";
+	cout << "LIBRARY 1 : " << &library_1 << "\n";
+	cout << "LIBRARY 2 : " << &library_2 << "\n";
+	cout << "LIBRARY 3 : " << &library_3 << "\n";
+	cout << "LIBRARY 4 : " << &library_4 << "\n";
+	cout << "LIBRARY 5 : " << &library_5 << "\n";
+	cout << "LIBRARY 6 : " << &library_6 << "\n";
 // 
+	cout << "-------------------------------------\n";
 	// cout << "Registering 1 ";
 	 library_1.attach(&library_4);
 	// cout << "Registering 2 ";
@@ -31,7 +32,8 @@ int main()
 	 library_4.attach(&library_5);
 	// cout << "Registering 5 ";
 	 library_5.attach(&library_6);
-	
+
+	ChangeManager::get()->disp();
 	cout << "-------------------------------------\n";
 	library_2.set_state("STATE - LIQUID", true);
 	cout << "-------------------------------------\n";
@@ -44,10 +46,10 @@ int main()
 	cout << "-------------------------------------\n\n\n";
 
 	#elif GEOMETRY
-	Coordinates z1 = Coordinates(5, 2);
-	Coordinates z2 = Coordinates(2, 1);
-	Coordinates z3 = Coordinates(2, 5);
-	Coordinates z4 = Coordinates(3, 1);
+	// Coordinates z1 = Coordinates(5, 2);
+	// Coordinates z2 = Coordinates(2, 1);
+	// Coordinates z3 = Coordinates(2, 5);
+	// Coordinates z4 = Coordinates(3, 1);
 	
 
 	Line l1 = Line(z1, z2, true);

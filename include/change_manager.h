@@ -27,6 +27,7 @@ class ChangeManager
 {
 private:
 	static ChangeManager *instance_;
+	std::unordered_multimap<void *, Subject *> lookup;
 	std::unordered_multimap<Subject *, Observer *> subject_observer;
 
 protected:
@@ -34,12 +35,16 @@ protected:
 
 public:
 	static void remove();
+
+	void initialize_(Subject* s, void *test);
+
 	ChangeManager(ChangeManager const&) = delete;
 	ChangeManager& operator=(ChangeManager const&) = delete;
 
 	static ChangeManager* get();
 
 	// use register_ and unregister_ since "register" is a keyword
+	Subject* lookup_convert(void *o);
 	void register_(Subject* s, Observer* o);
 	void unregister_(Subject* s, Observer* o);
 	void notify_(Subject* s);

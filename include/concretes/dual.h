@@ -14,7 +14,11 @@ public:
 
 	Dual(const state state)
 	: ConcreteObserver(state)
-	{}
+	{
+		void *temp = this;
+		ChangeManager::get()->initialize_(this, temp);
+	}
+
 
 	virtual ~Dual() {};
 };
