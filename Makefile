@@ -4,7 +4,9 @@ IDIR =include
 SRC=src
 ODIR=bin
 
-CFLAGS=-I $(IDIR) -DGEOMETRY
+EXAMPLE=LIBRARY
+
+CFLAGS=-I $(IDIR) -D$(EXAMPLE) $(DEBUG)
 
 # enter names of header files defined in `include/` here
 _DEPS = logga.h observer.h subject.h concretes/observer.h concretes/subject.h change_manager.h concretes/dual.h examples/geometry.h examples/library.h

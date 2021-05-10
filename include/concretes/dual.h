@@ -13,7 +13,7 @@ private:
 
 public:
 
-	Dual() : Observer(), Subject()  {};
+	Dual() = default;
 
 	Dual(const state state)
 	: observer_state_(state), subject_state_(state)

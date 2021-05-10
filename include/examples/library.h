@@ -10,7 +10,7 @@ private:
     std::string version_;
 public:
 
-	Library() : Dual()  {};
+	Library() = default;
 
 	Library(const state state, std::string name = "", std::string version = "0.0.0")
 	: Dual(state), name_(name), version_(version)
@@ -21,7 +21,7 @@ public:
     {
         Library * temp = (Library *)reinterpret_cast<void*>(subject);
     
-        std::cout << "\nWarning:\nThe state of dependency for "<< this->name_ << "v" << this->version_ <<" has changed. \n";
+        std::cout << "\nWarning:\nThe state of dependency for "<< this->name_ << " v" << this->version_ <<" has changed. \n";
         std::cout << "\t" <<subject->get_state() << "\n";
         Dual::update(subject);
     }
