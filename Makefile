@@ -7,7 +7,7 @@ ODIR=bin
 CFLAGS=-I $(IDIR)
 
 # enter names of header files defined in `include/` here
-_DEPS = logga.h observer.h subject.h concretes/observer.h concretes/subject.h change_manager.h concretes/dual.h
+_DEPS = logga.h observer.h subject.h concretes/observer.h concretes/subject.h change_manager.h concretes/dual.h examples/point.h examples/coordinates.h examples/line.h examples/angle.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
 # enter `path/to/file.o` for each file defined in `src/` here

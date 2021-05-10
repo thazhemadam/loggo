@@ -5,6 +5,8 @@ typedef struct Point
 {
     double x_;
     double y_;
+    Point() = default;
+
     Point(double x, double y) : x_(x), y_(y) {}
 
     Point& operator=(const Point &rhs)

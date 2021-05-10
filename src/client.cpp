@@ -4,7 +4,7 @@ using namespace std;
 int main()
 {
 	
-	#if 1
+	#if 0
 	Dual library_1("LIB - 1");
 	Dual library_2("LIB - 2");
 	Dual library_3("LIB - 3");
@@ -32,13 +32,17 @@ int main()
 	#endif
 
 	Coordinates z1 = Coordinates(5, 2);
+	cout << "Z1: "<< "\t" << &z1 << "\n";
+
 	Coordinates z2 = Coordinates(4, 1);
-	Line l1 = Line(z1, z2);
-	cout << l1;
+	cout << "Z2: "<< "\t" << &z2 << "\n";
 
-	Line l2 = Line(z1, z2, true);
-	cout << l2;
-	l2.p_2_ = z1;
+	Line l1 = Line(z1, z2, true);
+	cout << "l1: "<< "\t" << &l1 << "\n";
 
+	Line l2 = Line(z1, z2);
+	cout << "l2: "<< "\t" << &l2 << "\n";
+
+	l1.p_2_.set_state(Point(3, 2), true);
 	return 0;
 }

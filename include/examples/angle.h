@@ -7,6 +7,7 @@
 class Angle
 {
 public:
+    // to make into a line
     double slope_1_;
     double slope_2_;
 
