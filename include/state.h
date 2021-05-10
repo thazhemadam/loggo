@@ -3,6 +3,6 @@
 
 #include <string>
 
-using state = std::string;
+using state = double;
 
 #endif

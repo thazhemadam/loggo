@@ -1,5 +1,5 @@
-#ifndef CONCRETE_OBSERVER_H
-#define CONCRETE_OBSERVER_H
+#ifndef LINE_H
+#define LINE_H
 
 #include "../observer.h"
 #include "../state.h"
@@ -8,22 +8,28 @@
  * Concrete Observer
  * stores state of interest to ConcreteObserver objects and
  * sends a notification to its observers when its state changes
- *
-class ConcreteObserver : public Observer
+ */
+class Line : public Observer
 {
 
 	private:
-	state observer_state_;
+	state distance =0;
+    state slope=0;
+    state x_coord_2;
+    state y_coord_2;
 
 	public:
-	ConcreteObserver() = default;
-	ConcreteObserver(const state state);
+	Line() = default;
+	Line(const state x,const state y)
+    : x_coord_2(x),y_coord_2(y)
+    {
+    }
 
-	virtual ~ConcreteObserver();
+	virtual ~Line();
 
 	virtual state get_state() const;
 	virtual void update(Subject *subject);
 	virtual void disp() const;
 };
-*/
+
 #endif

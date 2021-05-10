@@ -6,7 +6,7 @@
 #include "state.h"
 
 class Subject;
-
+class Coordinates;
 /*
  * Observer
  * defines an updating interface for objects that should be notified
@@ -19,6 +19,7 @@ class Observer
 
 	virtual state get_state() const = 0;
 	virtual void update(Subject *subject) = 0;
+	//virtual void update(Coordinates *subject) = 0;
 	virtual void disp() const = 0;
 };
 

@@ -2,6 +2,17 @@
 
 int main()
 {
+	Coordinates coord(1,2);
+	std::cout << coord.get_state() << std::endl;
+
+	Line line1(2,3);
+	line1.disp();
+	
+	coord.attach(&line1);
+	coord.set_state(6,7,true);
+	line1.disp();
+
+	#if 0
 	Library observer1("STATE - 1");
 	Library observer2("STATE - 2");
 
@@ -26,6 +37,6 @@ int main()
 
 	observer1.disp();
 	observer2.disp();
-
+	#endif
 	return 0;
 }

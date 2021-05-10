@@ -1,7 +1,7 @@
 #include "concretes/observer.h"
 #include "concretes/subject.h"
 #include "state.h"
-
+/*
 ConcreteObserver::ConcreteObserver(const state state)
 : observer_state_(state)
 {}
@@ -24,3 +24,4 @@ void ConcreteObserver::disp() const
 {
 	std::cout << "Observer state " << observer_state_ << "\n";
 }
+*/
