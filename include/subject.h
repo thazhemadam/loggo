@@ -7,7 +7,7 @@
 #include "change_manager.h"
 
 class Observer;
-class Coordinates;
+
 /*
  * Subject
  * knows its observers and provides an interface for attaching
@@ -26,8 +26,8 @@ class Subject
 	virtual void detach(Observer *observer);
 	virtual void notify();
 
-	virtual double get_state() const = 0;
-	virtual void set_state(const double s,const double y, bool auto_notify = false) = 0;
+	virtual std::tuple<state,state> get_state() const = 0;
+	virtual void set_state(const state s,const state y, bool auto_notify = false) = 0;
 };
 
 #endif

@@ -3,12 +3,13 @@
 int main()
 {
 	Coordinates coord(1,2);
-	std::cout << coord.get_state() << std::endl;
+	//std::cout << coord.get_state() << std::endl;
 
 	Line line1(2,3);
-	line1.disp();
-	
+	//line1.disp();
+
 	coord.attach(&line1);
+	line1.disp();
 	coord.set_state(6,7,true);
 	line1.disp();
 

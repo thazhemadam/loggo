@@ -1,21 +1,23 @@
 #include "concretes/coordinates.h"
 #include "state.h"
 #include "concretes/line.h"
+#include <cmath>
 
 Line::~Line()
 {}
 
-state Line::get_state() const
+std::tuple<state,state> Line::get_state() const
 {
-	return y_coord_2;
+	return std::make_tuple(x_coord_2,y_coord_2);
 }
 
 void Line::update(Subject *subject)
 {
-	state y_coord_1 = subject->get_state();
-	distance = y_coord_1 + 0;
-	y_coord_2 = y_coord_1;
-	slope = (x_coord_2 + 0)/(distance);
+	state x_coord_1,y_coord_1;
+	std::tie(x_coord_1, y_coord_1) = subject->get_state();
+	distance = sqrt((x_coord_2 - y_coord_1)*(x_coord_2 - y_coord_1) + (y_coord_2-y_coord_1)*(y_coord_2-y_coord_1));
+	slope = (y_coord_2 - y_coord_1)/(x_coord_2 - x_coord_1);
+	std:: cout << x_coord_1 << ":" << y_coord_1 << "," << x_coord_2 << ":" << y_coord_2 << std::endl;
 	std::cout << "Observer state updated." << std::endl;
 }
 

@@ -7,7 +7,7 @@
 /*
  * Concrete Subject
  * stores state that should stay consistent with the subject's
- */
+ *
 class ConcreteSubject : public Subject
 {
 	private:
@@ -17,8 +17,8 @@ class ConcreteSubject : public Subject
 	ConcreteSubject() = default;
 	virtual ~ConcreteSubject();
 
-	virtual state get_state() const;
+	virtual std::tuple<state,state> get_state() const;
 	virtual void set_state(const state s, bool auto_notify = false);
-};
+};*/
 
 #endif

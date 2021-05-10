@@ -2,6 +2,7 @@
 #include "concretes/subject.h"
 #include "state.h"
 
+/*
 ConcreteSubject::~ConcreteSubject()
 {}
 
@@ -17,3 +18,4 @@ void ConcreteSubject::set_state(const state s, bool auto_notify)
 	if(auto_notify)
 		notify();
 }
+*/

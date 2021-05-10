@@ -27,7 +27,7 @@ class Line : public Observer
 
 	virtual ~Line();
 
-	virtual state get_state() const;
+	virtual std::tuple<state,state> get_state() const;
 	virtual void update(Subject *subject);
 	virtual void disp() const;
 };

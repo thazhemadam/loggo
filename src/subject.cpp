@@ -6,7 +6,7 @@ void Subject::attach(Observer *observer)
 {
 	
 	ChangeManager::get()->register_(this, observer);
-	observer->update(this); //Imp
+	
 }
 
 void Subject::detach(Observer *observer)

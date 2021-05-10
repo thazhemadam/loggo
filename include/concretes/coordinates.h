@@ -19,7 +19,7 @@ class Coordinates : public Subject
 	Coordinates(const state x, const state y);
 	virtual ~Coordinates();
 
-	virtual state get_state() const;
+	virtual std::tuple<state,state> get_state() const;
 	virtual void set_state(const state s,const state y, bool auto_notify = false);
 };
 

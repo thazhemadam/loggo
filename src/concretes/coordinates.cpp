@@ -11,9 +11,9 @@ Coordinates::Coordinates(const state x, const state y)
 Coordinates::~Coordinates()
 {}
 
-state Coordinates::get_state() const
+std::tuple<state,state> Coordinates::get_state() const
 {
-	return (x_coord,y_coord);
+	return std::make_tuple(x_coord,y_coord);
 }
 
 void Coordinates::set_state(const state x,const state y, bool auto_notify)

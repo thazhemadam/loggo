@@ -22,6 +22,7 @@ void ChangeManager::remove()
 void ChangeManager::register_(Subject* s, Observer* o)
 {
 	subject_observer.insert(std::pair<Subject *, Observer*>(s, o));
+	o->update(s);//updates the observer as soon as its attached
 }
 
 
