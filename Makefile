@@ -4,7 +4,7 @@ IDIR =include
 SRC=src
 ODIR=bin
 
-CFLAGS=-I $(IDIR)
+CFLAGS=-I $(IDIR) -DGEOMETRY
 
 # enter names of header files defined in `include/` here
 _DEPS = logga.h observer.h subject.h concretes/observer.h concretes/subject.h change_manager.h concretes/dual.h examples/point.h examples/coordinates.h examples/line.h examples/angle.h

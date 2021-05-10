@@ -10,6 +10,7 @@ class Line : public Dual
 {
 
 private:
+    state observer_state_;
 	double distance_;
     double slope_;
 
@@ -44,6 +45,37 @@ public:
         return ((p_2.point_.y_ - p_1.point_.y_)/((p_2.point_.x_ - p_1.point_.x_)) );
     }
 
+
+    void update_distance()
+    {
+        distance_ = manhattan_distance(p_1_, p_2_);
+    }
+
+    void update_slope()
+    {
+        slope_ = slope(p_1_, p_2_);
+    }
+
+	state get_state() const
+    {
+        return observer_state_;
+    }
+
+    void update(Subject *subject)
+    {
+        if(subject == &p_1_)
+            p_1_ = subject->get_state();
+        else
+            p_2_ = subject->get_state();
+        
+        update_distance();
+        update_slope();
+    }
+
+    void disp() const
+    {
+        std::cout << *this;
+    }
 
     friend std::ostream& operator<<(std::ostream& os, const Line& line)
     {

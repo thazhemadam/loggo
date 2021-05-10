@@ -2,32 +2,22 @@
 #define COORDINATES_H
 
 #include "point.h"
-#include "../concretes/subject.h"
+#include "../subject.h"
 #include <sstream>
 
-class Coordinates : public ConcreteSubject
+class Coordinates : public Subject
 {
 private:
     Point point_;
     state subject_state_;
 
-	void set_state(const state s, bool auto_notify = false)
+    Coordinates& operator=(const Coordinates &rhs)
     {
-        subject_state_ = s;
+        if(this != &rhs) {
+            point_ = rhs.point_;
+        }
 
-        if(auto_notify)
-            notify();
-
-        return;
-    }
-
-	state updated_state()
-    {
-        std::stringstream ss;
-        ss << *this;
-        std::cout << ss.str();
-
-        return state(ss.str());
+        return *this;
     }
 
 
@@ -36,16 +26,6 @@ public:
     Coordinates(Point z) : point_(z) {}
     Coordinates(double x, double y) : point_(Point(x, y)) {}
     virtual ~Coordinates() {}
-
-    Coordinates& operator=(const Coordinates &rhs)
-    {
-        if(this != &rhs) {
-            point_ = rhs.point_;
-            notify();
-        }
-
-        return *this;
-    }
 
     friend std::ostream& operator<<(std::ostream& os, const Coordinates& point)
     {
@@ -58,10 +38,14 @@ public:
         return subject_state_;
     }
 
-    void set_state(const Point new_point, bool autonotify = false)
+	void set_state(const state s, bool auto_notify = false)
     {
-        point_ = new_point;
-        set_state(updated_state(), autonotify);
+        subject_state_ = s;
+
+        if(auto_notify)
+            notify();
+
+        return;
     }
 
     friend class Line;
