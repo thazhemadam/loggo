@@ -3,7 +3,11 @@
 
 void Subject::attach(Observer *observer)
 {
-	ChangeManager::get()->register_(this, observer);
+	std::cout << this << "\n";
+	// std::cout << &this;
+	std::cout << &(*this) << "\n";
+
+	ChangeManager::get()->register_((this), observer);
 }
 
 void Subject::detach(Observer *observer)

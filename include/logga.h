@@ -7,6 +7,8 @@
 #include "concretes/subject.h"
 #include "concretes/dual.h"
 
+#ifdef GEOMETRY
 #include "examples/geometry.h"
+#endif
 
 #endif
