@@ -5,12 +5,12 @@ int main()
 {
 	
 	#ifdef LIBRARY
-	Dual library_1("LIB - 1");
-	Dual library_2("LIB - 2");
-	Dual library_3("LIB - 3");
-	Dual library_4("LIB - 4");
-	Dual library_5("LIB - 5");
-	Dual library_6("LIB - 6");
+	Library library_1("LIB - 1");
+	Library library_2("LIB - 2");
+	Library library_3("LIB - 3");
+	Library library_4("LIB - 4");
+	Library library_5("LIB - 5");
+	Library library_6("LIB - 6");
 
 	// cout << "LIBRARY 1 : " << &library_1 << "\n";
 	// cout << "LIBRARY 2 : " << &library_2 << "\n";
