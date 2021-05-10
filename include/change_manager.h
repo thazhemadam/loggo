@@ -18,7 +18,6 @@ typedef std::unordered_multimap<Subject *, Observer *>::iterator iterator;
  * 
  * 3 "responsibilities":
  * 		1. maps a subject to its observers. provide an interface to maintain this mapping.
- * 			=> NO NEED FOR SUBJECTS TO MAINTAIN REFERENCES TO OBSERVERS AND VICE-VERSE
  *		2. define a particular update strategy
  * 		3. update all dependent observers at the request of a subject
  */

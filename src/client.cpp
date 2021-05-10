@@ -12,16 +12,20 @@ int main()
 	Dual library_5("LIB - 5");
 	Dual library_6("LIB - 6");
 
-	cout << "LIBRARY 1 : " << &library_1 << "\n";
-	cout << "LIBRARY 2 : " << &library_2 << "\n";
-	cout << "LIBRARY 3 : " << &library_3 << "\n";
-	cout << "LIBRARY 4 : " << &library_4 << "\n";
-	cout << "LIBRARY 5 : " << &library_5 << "\n";
-	cout << "LIBRARY 6 : " << &library_6 << "\n";
-// 
-	cout << "-------------------------------------\n";
+	// cout << "LIBRARY 1 : " << &library_1 << "\n";
+	// cout << "LIBRARY 2 : " << &library_2 << "\n";
+	// cout << "LIBRARY 3 : " << &library_3 << "\n";
+	// cout << "LIBRARY 4 : " << &library_4 << "\n";
+	// cout << "LIBRARY 5 : " << &library_5 << "\n";
+	// cout << "LIBRARY 6 : " << &library_6 << "\n";
+
+	// cout << "-------------------------------------\n";
 	// cout << "Registering 1 ";
 	 library_1.attach(&library_4);
+	 library_1.attach(&library_3);
+	 library_1.attach(&library_2);
+	 library_1.attach(&library_1);
+
 	// cout << "Registering 2 ";
 	 library_2.attach(&library_4);
 	// cout << "Registering 2 ";
@@ -33,7 +37,7 @@ int main()
 	// cout << "Registering 5 ";
 	 library_5.attach(&library_6);
 
-	ChangeManager::get()->disp();
+	// ChangeManager::get()->disp();
 	cout << "-------------------------------------\n";
 	library_2.set_state("STATE - LIQUID", true);
 	cout << "-------------------------------------\n";
@@ -44,6 +48,14 @@ int main()
 	library_5.disp();
 	library_6.disp();
 	cout << "-------------------------------------\n\n\n";
+	library_1.set_state("STATE - Sleep", true);
+	cout << "-------------------------------------\n\n\n";
+	library_1.disp();
+	library_2.disp();
+	library_3.disp();
+	library_4.disp();
+	library_5.disp();
+	library_6.disp();
 
 	#elif GEOMETRY
 	// Coordinates z1 = Coordinates(5, 2);
