@@ -7,5 +7,6 @@
 #include "concretes/subject.h"
 #include "concretes/line.h"
 #include "concretes/coordinates.h"
+#include "concretes/angle.h"
 
 #endif

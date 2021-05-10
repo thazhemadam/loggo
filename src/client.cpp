@@ -2,16 +2,33 @@
 
 int main()
 {
-	Coordinates coord(1,2);
+	Coordinates coord1(1,2);
+	Coordinates coord2(9,2);
 	//std::cout << coord.get_state() << std::endl;
 
 	Line line1(2,3);
 	//line1.disp();
 
-	coord.attach(&line1);
+	coord1.attach(&line1);
 	line1.disp();
-	coord.set_state(6,7,true);
+	std::cout << "----detach----\n";
+	coord1.detach(&line1);
 	line1.disp();
+	std::cout << "----attach----\n";
+	coord2.attach(&line1);
+	//coord2.set_state(6,7,true);
+	line1.disp();
+
+	#if 1
+// For now angle takes a slope i.e 4 and it does nothing !!
+	Angle angle_1_2(4);
+	line1.attach(&angle_1_2);//should be made to attach to only 2 lines !!
+	angle_1_2.disp(); // should display the angle bw them !!
+	std::cout << "-------Change------" << "\n";
+	coord2.set_state(5,9,true);//change in coordinates
+	line1.disp();	//changes line
+	angle_1_2.disp(); // changes angle also
+	#endif
 
 	#if 0
 	Library observer1("STATE - 1");
