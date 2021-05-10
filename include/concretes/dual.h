@@ -8,7 +8,6 @@
 class Dual : public ConcreteObserver, public ConcreteSubject
 {
 private:
-
 public:
 
 	Dual() : ConcreteObserver(), ConcreteSubject()  {};

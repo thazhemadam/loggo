@@ -12,12 +12,25 @@ int main()
 	Dual library_5("LIB - 5");
 	Dual library_6("LIB - 6");
 
-	library_1.attach(&library_4);
-	library_2.attach(&library_4);
-	library_2.attach(&library_5);
-	library_3.attach(&library_5);
-	library_4.attach(&library_5);
-	library_5.attach(&library_6);
+	// cout << "LIBRARY 1 : " << &library_1 << "\n";
+	// cout << "LIBRARY 2 : " << &library_2 << "\n";
+	// cout << "LIBRARY 3 : " << &library_3 << "\n";
+	// cout << "LIBRARY 4 : " << &library_4 << "\n";
+	// cout << "LIBRARY 5 : " << &library_5 << "\n";
+	// cout << "LIBRARY 6 : " << &library_6 << "\n";
+// 
+	// cout << "Registering 1 ";
+	 library_1.attach(&library_4);
+	// cout << "Registering 2 ";
+	 library_2.attach(&library_4);
+	// cout << "Registering 2 ";
+	 library_2.attach(&library_5);
+	// cout << "Registering 3 ";
+	 library_3.attach(&library_5);
+	// cout << "Registering 4 ";
+	 library_4.attach(&library_5);
+	// cout << "Registering 5 ";
+	 library_5.attach(&library_6);
 	
 	cout << "-------------------------------------\n";
 	library_2.set_state("STATE - LIQUID", true);
