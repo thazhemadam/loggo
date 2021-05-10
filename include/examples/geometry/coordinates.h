@@ -2,7 +2,7 @@
 #define COORDINATES_H
 
 #include "point.h"
-#include "../subject.h"
+#include "../../subject.h"
 #include <sstream>
 
 class Coordinates : public Subject

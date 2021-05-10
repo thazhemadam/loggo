@@ -1,8 +1,8 @@
 #ifndef LINE_H
 #define LINE_H
 
-#include "../concretes/dual.h"
-#include "../state.h"
+#include "../../concretes/dual.h"
+#include "../../state.h"
 #include "coordinates.h"
 #include <math.h>
 
@@ -29,10 +29,10 @@ public:
         distance_ = manhattan_distance(x, y); 
         slope_ = slope(x, y);
 
-        if(auto_attach) {
-            p_1_.attach(this);
-            p_2_.attach(this);
-        }
+        // if(auto_attach) {
+        //     p_1_.attach(this);
+        //     p_2_.attach(this);
+        // }
     }
 
 	~Line() {}

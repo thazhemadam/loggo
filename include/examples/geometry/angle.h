@@ -1,9 +1,9 @@
 #ifndef ANGLE_H
 #define ANGLE_H
 
-#include "../concretes/observer.h"
-#include "../state.h"
-#include "../observer.h"
+#include "../../concretes/observer.h"
+#include "../../state.h"
+#include "../../observer.h"
 #include <math.h>
 
 class Angle : public Observer

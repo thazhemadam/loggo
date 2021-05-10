@@ -58,10 +58,10 @@ int main()
 	library_6.disp();
 
 	#elif GEOMETRY
-	// Coordinates z1 = Coordinates(5, 2);
-	// Coordinates z2 = Coordinates(2, 1);
-	// Coordinates z3 = Coordinates(2, 5);
-	// Coordinates z4 = Coordinates(3, 1);
+	Coordinates z1 = Coordinates(5, 2);
+	Coordinates z2 = Coordinates(2, 1);
+	Coordinates z3 = Coordinates(2, 5);
+	Coordinates z4 = Coordinates(3, 1);
 	
 
 	Line l1 = Line(z1, z2, true);

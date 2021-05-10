@@ -2,11 +2,11 @@
 #define STATE_H
 
 #ifdef LIBRARY
-#include <string>
 using state = std::string;
-// #ifdef GEOMETRY
-#else
-#include "examples/point.h"
+#endif
+
+#ifdef GEOMETRY
+#include "examples/geometry/point.h"
 using state = Point;
 #endif
 
