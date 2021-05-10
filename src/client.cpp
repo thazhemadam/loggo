@@ -64,18 +64,30 @@ int main()
 	Coordinates z4 = Coordinates(3, 1);
 	
 
+
 	Line l1 = Line(z1, z2, true);
-	Line l2 = Line(z1, z3, true);
+	std::cout << "\n\nLine Stats:";
 
-	cout <<"\n---------------- \n BEFORE \n";
-	cout << l1;
+	std::cout << &l1 << "\n\t";
+	std::cout << &z1 << "\t" << &z2 << "\n";
+	// std::cout << "\n\n";
+
+	// ChangeManager::get()->disp();
+
+	// std::cout << "\n\n";
+
+	
+	// Line l2 = Line(z1, z3, true);
+
+	// cout <<"\n---------------- \n BEFORE \n";
+	// cout << l1;
 
 
 
-	Point *new_point = new Point(5, 23);
-	l1.p_1_.set_state(new_point, true);
-	cout <<"\n---------------- \n AFTER \n";
-	cout << l1;
+	// Point *new_point = new Point(5, 23);
+	// l1.p_1_.set_state(new_point, true);
+	// cout <<"\n---------------- \n AFTER \n";
+	// cout << l1;
 
 	#endif
 	return 0;

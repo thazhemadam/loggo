@@ -8,7 +8,7 @@ using state = std::string;
 // #ifdef GEOMETRY
 #else
 #include "examples/geometry/point.h"
-using state = Point*;
+using state = Point;
 // #endif
 
 #endif

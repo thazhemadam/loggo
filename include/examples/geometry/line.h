@@ -10,8 +10,6 @@ class Line : public ConcreteObserver
 {
 
 private:
-    state observer_state_[2];
-
 	double distance_;
     double slope_;
 
@@ -30,9 +28,6 @@ public:
         if(auto_attach) {
             p_1_.attach(this);
             p_2_.attach(this);
-
-            observer_state_[0] = &(p_1_.point_);
-            observer_state_[1] = &(p_2_.point_);
         }
     }
 
@@ -58,23 +53,8 @@ public:
         slope_ = slope(p_1_, p_2_);
     }
 
-	state get_state(int index) const
-    {
-        return observer_state_[index];
-    }
-
     void update(Subject *subject)
     {
-        if(subject == &p_1_) {
-            p_1_ = subject->get_state();
-            observer_state_[0] = subject->get_state();
-        }
-
-        else {
-            p_2_ = subject->get_state();
-            observer_state_[1] = subject->get_state();
-        }
-
         update_distance();
         update_slope();
     }
