@@ -28,17 +28,17 @@ public:
         module.module_library_ = this;
     }
 
-    void attach(Observer *observer, Module &module)
+    void attach(Module &module)
     {
-        Dual::Subject::attach(observer, module);
+        module.attach(this);
     }
 
     void update(Subject *subject)
     {
-        Library * temp = (Library *)reinterpret_cast<void*>(subject);
+        std::cout << "\nUpdate time! \t" << this;
     
-        std::cout << "\nWarning:\nThe state of dependency for "<< this->name_ << " v" << this->version_ <<" has changed. \n";
-        std::cout << "\t" <<subject->get_state() << "\n";
+        // std::cout << "\nWarning:\nThe state of dependency for "<< this->name_ << " v" << this->version_ <<" has changed. \n";
+        // std::cout << "\t" <<subject->get_state() << "\n";
         Dual::update(subject);
     }
 

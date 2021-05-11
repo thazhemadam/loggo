@@ -42,6 +42,7 @@ void ChangeManager::register_(Subject* s, Observer* o)
 	#endif
 
 	subject_observer.insert(std::pair<Subject *, Observer*>(s, o));
+	disp();
 }
 
 
@@ -87,11 +88,13 @@ Subject *ChangeManager::lookup_convert(void* observer)
 
 void ChangeManager::notify_(Subject* subject)
 {
+	std::cout << "\nNotifying " << subject;
 	std::pair<iterator, iterator> iterpair = subject_observer.equal_range(subject);
 
 	iterator observer = iterpair.first;
 
 	for (; observer != iterpair.second; ++observer) {
+		std::cout << "\n Updating " << observer->second;
 		observer->second->update(subject);	// "observer->second" is an observer of the Subject sa reference
 		// In case Dual isn't being used, this can be used.
 		// Subject *next_update = lookup_convert(observer->second);

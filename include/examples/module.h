@@ -5,7 +5,7 @@
 
 class Library;
 
-class Module : public ConcreteSubject, public virtual Aspect
+class Module : public ConcreteSubject
 {
 private:
     std::string name_;
