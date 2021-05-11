@@ -3,7 +3,10 @@
 
 void Subject::attach(Observer *observer)
 {
-	ChangeManager::get()->register_(this, observer);
+	#if DEBUG_DUAL
+		std::cout << "In Subject::Attach -\t" << this <<"\n";
+	#endif
+	ChangeManager::get()->register_((this), observer);
 }
 
 void Subject::detach(Observer *observer)
