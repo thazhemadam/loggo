@@ -3,6 +3,7 @@ using namespace std;
 
 int main()
 {
+	#if 0
 
 	#ifdef LIBRARY
 	Library library_1("Imported Library", "LIB - 1", "1.3.8");
@@ -76,5 +77,14 @@ int main()
 	cout << l1;
 
 	#endif
+	#endif
+
+	Library library_1("Imported Library", "LIB - 1", "1.3.8");
+	Module new_mod("h8i");
+	library_1.add_module(new_mod);
+
+	std::cout << library_1;
+	Library library_2("Imported Library", "LIB - 2", "4.3.8");
+
 	return 0;
 }

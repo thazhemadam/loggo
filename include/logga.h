@@ -8,9 +8,9 @@
 #include "concretes/dual.h"
 
 
-#ifdef LIBRARY
+// #ifdef LIBRARY
 #include "examples/library.h"
-#endif
+// #endif
 
 #ifdef GEOMETRY
 #include "examples/geometry.h"

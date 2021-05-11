@@ -2,12 +2,17 @@
 #define LIBRARY_H
 
 #include "../concretes/dual.h"
+#include "module.h"
+#include <vector>
 
+class Module;
 class Library : public Dual
 {
 private:
     std::string name_;
     std::string version_;
+    std::vector<Module *> modules_;
+
 public:
 
 	Library() = default;
@@ -16,6 +21,17 @@ public:
 	: Dual(state), name_(name), version_(version)
 	{}
 
+    void add_module(Module &module)
+    {
+        std::cout << "\b here!";
+        modules_.push_back(&(module));
+        module.module_library_ = this;
+    }
+
+    void attach(Observer *observer, Module &module)
+    {
+        Dual::Subject::attach(observer, module);
+    }
 
     void update(Subject *subject)
     {
@@ -31,6 +47,18 @@ public:
         std::cout << "\nName:\t" << name_ << "\n";
         std::cout << "Version:\t" << version_ << "\n";
         std::cout << "State:\t" << Dual::get_state() << "\n";     
+    }
+
+    friend std::ostream& operator << (std::ostream & os, const Library &library)
+    {
+        os << "\nName:\t" << library.name_ << "\n";
+        os << "Version:\t" <<  library.version_ << "\n";
+        os << "State:\t" <<  library.Dual::get_state() << "\n";
+        os << "\nModules: ";
+        for(auto it = library.modules_.begin(); it != library.modules_.end(); ++it) {
+            os << **it << "\n";
+        }
+        return os;
     }
 
 };

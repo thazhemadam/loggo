@@ -5,6 +5,7 @@
 #include <vector>
 #include "state.h"
 #include "change_manager.h"
+#include "aspect.h"
 
 class Observer;
 
