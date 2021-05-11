@@ -33,6 +33,7 @@ private:
 
 protected:
 	ChangeManager() {}
+	Subject* lookup_convert(void *o);
 
 public:
 	static void remove();
