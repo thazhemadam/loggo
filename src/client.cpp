@@ -21,6 +21,8 @@ int main()
 	cout << "LIBRARY 6 : " << &library_6 << "\n";
 	#endif
 
+	// lib1 , lib2 - Subjects with components, and Observers have
+	// part of a library
 	library_1.attach(&library_4);
 	library_1.attach(&library_3);
 	library_1.attach(&library_2);

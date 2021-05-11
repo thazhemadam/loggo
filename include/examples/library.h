@@ -12,7 +12,7 @@ public:
 
 	Library() = default;
 
-	Library(const state state, std::string name = "", std::string version = "0.0.0")
+	Library(const state &state, std::string name = "", std::string version = "0.0.0")
 	: Dual(state), name_(name), version_(version)
 	{}
 

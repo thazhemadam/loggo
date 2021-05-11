@@ -15,7 +15,7 @@ public:
 
 	Dual() = default;
 
-	Dual(const state state)
+	Dual(const state &state)
 	: observer_state_(state), subject_state_(state)
 	{
 		#ifdef LIBRARY
@@ -37,7 +37,7 @@ public:
 		set_state(observer_state_, true);
 	}
 
-	virtual void set_state(const state s, bool auto_notify = false)
+	virtual void set_state(const state &s, bool auto_notify = false)
 	{
 
 		subject_state_ = s;
