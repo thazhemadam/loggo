@@ -2,7 +2,7 @@
 #include "concretes/subject.h"
 #include "state.h"
 
-ConcreteObserver::ConcreteObserver(const state state)
+ConcreteObserver::ConcreteObserver(const state &state)
 : observer_state_(state)
 {}
 

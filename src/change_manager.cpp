@@ -1,4 +1,5 @@
 #include "change_manager.h"
+#include <stack>
 
 ChangeManager* ChangeManager::instance_ = nullptr;
 
@@ -41,6 +42,7 @@ void ChangeManager::register_(Subject* s, Observer* o)
 	#endif
 
 	subject_observer.insert(std::pair<Subject *, Observer*>(s, o));
+	disp();
 }
 
 

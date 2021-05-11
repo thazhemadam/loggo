@@ -28,10 +28,11 @@ private:
 	static ChangeManager *instance_;
 	std::unordered_multimap<void *, Subject *> lookup;
 	std::unordered_multimap<Subject *, Observer *> subject_observer;
+	bool creates_cyclic_dependency_loop(Subject* s, Observer* o);
+	Subject* lookup_convert(void *o);
 
 protected:
 	ChangeManager() {}
-	Subject* lookup_convert(void *o);
 
 public:
 	static void remove();

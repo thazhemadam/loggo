@@ -17,7 +17,7 @@ class ConcreteObserver : public Observer
 
 	public:
 	ConcreteObserver() = default;
-	ConcreteObserver(const state state);
+	ConcreteObserver(const state &state);
 
 	virtual ~ConcreteObserver();
 

@@ -27,7 +27,7 @@ class Subject
 	virtual void notify();
 
 	virtual state get_state() const = 0;
-	virtual void set_state(const state s, bool auto_notify = false) = 0;
+	virtual void set_state(const state &s, bool auto_notify = false) = 0;
 };
 
 #endif

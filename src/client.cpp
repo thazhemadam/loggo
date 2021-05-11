@@ -3,7 +3,8 @@ using namespace std;
 
 int main()
 {
-	
+	#if 0
+
 	#ifdef LIBRARY
 	Library library_1("Imported Library", "LIB - 1", "1.3.8");
 	Library library_2("Imported Library", "LIB - 2", "3.3.7");
@@ -21,10 +22,12 @@ int main()
 	cout << "LIBRARY 6 : " << &library_6 << "\n";
 	#endif
 
+	// lib1 , lib2 - Subjects with components, and Observers have
+	// part of a library
 	library_1.attach(&library_4);
 	library_1.attach(&library_3);
 	library_1.attach(&library_2);
-	library_1.attach(&library_1);
+	library_1.attach(&library_1);	// self
 	library_2.attach(&library_4);
 	library_2.attach(&library_5);
 	library_3.attach(&library_5);
@@ -74,5 +77,52 @@ int main()
 	cout << l1;
 
 	#endif
+	#endif
+
+	Library library_1("Imported Library", "LIB - 1", "1.3.8");
+	Module new_mod("Module 1");
+	Module new_mod2("Module 2");
+
+	library_1.add_module(new_mod);
+	library_1.add_module(new_mod2);
+
+	Library library_2("Imported Library", "LIB - 2", "4.3.8");
+	Library library_3("Imported Library", "LIB - 3", "2.1.4");
+
+	std::cout << &library_1 <<"\n";
+	std::cout << &library_2 <<"\n";
+	std::cout << &library_3 <<"\n";
+	std::cout << &new_mod <<"\n";
+	std::cout << &new_mod2 <<"\n";
+
+	ChangeManager::get()->disp();
+
+
+	library_2.attach(new_mod);
+	library_3.attach(new_mod2);
+
+	ChangeManager::get()->disp();
+
+
+	std::cout <<" \n========================================\n";
+	new_mod.set_state("Module 1 Updated!", true);
+	std::cout << new_mod.get_state() << "\n";
+
+	std::cout <<" \n========================================\n";
+
+	ChangeManager::get()->disp();
+
+	std::cout <<" \n========================================\n";
+
+	new_mod2.set_state("Module 2 Updated!", true);
+	std::cout << new_mod2.get_state() << "\n";
+
+	std::cout <<" \n========================================\n";
+
+	library_1.disp();
+	library_2.disp();
+	library_3.disp();
+
+
 	return 0;
 }
